@@ -13,7 +13,6 @@ export const Experience = () => {
 
   return (
     <>
-      <OrbitControls />
       <Sky />
       <group position-y={-1}>
         <ContactShadows
