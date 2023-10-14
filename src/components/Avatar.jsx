@@ -11,10 +11,10 @@ import * as THREE from "three"
 
 export function Avatar(props) {
   const { animation } = props
-  const { headFollow, cursorFollow } = useControls({
-    headFollow: false,
-    cursorFollow: false
-  })
+  // const { headFollow, cursorFollow } = useControls({
+  //   headFollow: false,
+  //   cursorFollow: false
+  // })
   const group = useRef();
   const { nodes, materials } = useGLTF('models/avatar.glb ')
 
@@ -31,15 +31,15 @@ export function Avatar(props) {
     group
   );
   
-  useFrame((state) => {
-    if (headFollow) {
-      group.current.getObjectByName("Head").lookAt(state.camera.position)
-    }
-    if (cursorFollow) {
-      const target = new THREE.Vector3(state.mouse.x,state.mouse.y,1)
-      group.current.getObjectByName("Spine").lookAt(target)
-    }
-  })
+  // useFrame((state) => {
+  //   if (headFollow) {
+  //     group.current.getObjectByName("Head").lookAt(state.camera.position)
+  //   }
+  //   if (cursorFollow) {
+  //     const target = new THREE.Vector3(state.mouse.x,state.mouse.y,1)
+  //     group.current.getObjectByName("Spine").lookAt(target)
+  //   }
+  // })
 
   useEffect(() => {
     actions[animation].reset().fadeIn(0.5).play();

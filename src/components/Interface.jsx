@@ -107,7 +107,7 @@ const skills = [
                       opacity: 1,
                       transition: {
                         duration: 1,
-                        delay: 1 + index * 0.2,
+                      delay: 1 + index * 0.2,
                       },
                     },
                   }}
