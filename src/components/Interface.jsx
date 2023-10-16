@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useAtom } from "jotai";
 import { currentProjectAtom, projects } from "./Projects";
-import "../input.css"
 
 const Section = (props) => {
     const { children } = props

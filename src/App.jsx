@@ -5,7 +5,6 @@ import { Menu } from "./components/Menu"
 import { Cursor } from "./components/Cursor"
 import { Scroll, ScrollControls } from "@react-three/drei";
 import { Interface } from "./components/Interface";
-import "./input.css"
 import { useEffect, useState } from "react";
 
 function App() {
