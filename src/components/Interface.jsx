@@ -212,7 +212,7 @@ const Projects = () => {
 const Contact = () => {
     return (
         <Section>
-          <h2 className="text-5xl font-bold">Contact me</h2>
+          <h2 className="text-5xl font-bold text-white">Contact me</h2>
           <div className="mt-8 p-8 rounded-md bg-white w-96 max-w-full">
             <form>
               <label for="name" className="font-medium text-gray-900 block mb-1">
