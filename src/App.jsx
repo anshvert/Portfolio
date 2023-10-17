@@ -23,7 +23,7 @@ function App() {
        ...framerMotionConfig
       }}>  
         <Canvas shadows camera={{ position: [0, 3, 10], fov: 14 }}>
-          <color attach="background" args={["#1fefef"]} />
+          <color attach="background" args={["#000000"]} />
           <ScrollControls pages={4} damping={0.1}>
             <ScrollManager section={section} onSectionChange={setSection}/>
             <Scroll>
@@ -34,7 +34,7 @@ function App() {
             </Scroll>
           </ScrollControls>
         </Canvas>
-        <Menu onSectionChange={setSection} menuOpened={menuOpened} setMenuOpened={setMenuOpened}/>
+        <Menu onSectionChange={setSection} menuOpened={menuOpened} setMenuOpened={setMenuOpened} section={section}/>
         <Cursor/>
       </MotionConfig>
     </>

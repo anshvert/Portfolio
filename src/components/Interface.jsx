@@ -46,26 +46,26 @@ const About = (props) => {
   const { setSection } = props
     return (
         <Section>
-            <h1 className="text-6xl font-extrabold leading-snug">
+            <h1 className="text-6xl font-extrabold leading-snug text-white">
                 Hi, I'm
                 <br />
-                <span className="bg-white px-1 italic">Ansh Tyagi</span>
+                <span className="px-1 italic">Ansh Tyagi</span>
             </h1>
             <motion.p
-                className="text-lg text-gray-600 mt-4"
+                className="text-lg text-white mt-4"
                 initial= {{ opacity: 0, y: 25 }}
                 whileInView= {{ opacity: 1, y: 0 }}
                 transition= {{ duration: 0.7, delay: 1.5 }}>
-                I am a Web Developer
+                I Build Web Apps
             </motion.p>
-            <motion.button
+            {/* <motion.button
                 className={`bg-indigo-600 text-white py-4 px-8 rounded-lg font-bold text-lg mt-16`}
                 initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 2 }}
                 onClick={() => setSection(3)}>
                 Contact me
-            </motion.button>
+            </motion.button> */}
         </Section>
     )
 }
