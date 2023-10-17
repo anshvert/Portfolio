@@ -25,12 +25,14 @@ export const Experience = (props) => {
   const cameraLookAtX = useMotionValue();
 
   useEffect(() => {
-    animate(cameraPositionX, menuOpened ? -5 : 2, {
-      ...framerMotionConfig,
-    });
-    animate(cameraLookAtX, menuOpened ? 5 : 2.7, {
-      ...framerMotionConfig,
-    });
+    if (section == 0) {
+      animate(cameraPositionX, menuOpened ? -5 : 2, {
+        ...framerMotionConfig,
+      });
+      animate(cameraLookAtX, menuOpened ? 5 : 2.7, {
+        ...framerMotionConfig,
+      });
+    }
   }, [menuOpened]);
 
   const characterContainerAboutRef = useRef();
@@ -76,12 +78,15 @@ export const Experience = (props) => {
             scaleZ: 0.9,
           },
           1: {
-            y: -viewport.height + 0.5,
-            x: 0,
-            z: 7,
+            y: -viewport.height + 0.95,
+            x: 2.5,
+            z: 5.7,
             rotateX: 0,
             rotateY: 0,
             rotateZ: 0,
+            scaleX: 0.7,
+            scaleY: 0.7,
+            scaleZ: 0.7
           },
           2: {
             x: -2,
@@ -123,14 +128,14 @@ export const Experience = (props) => {
 
       {/* SKILLS */}
       <motion.group
-        position={[0, -1.5, -10]}
+        position={[3, 1.5, 10]}
         animate={{
-          z: section === 1 ? 0 : -10,
+          z: section === 1 ? 0 : -1,
           y: section === 1 ? -viewport.height : -1.5,
         }}
       >
         <directionalLight position={[-5, 3, 5]} intensity={0.4} />
-        <Float>
+        {/* <Float>
           <mesh position={[1, -3, -15]} scale={[2, 2, 2]}>
             <sphereGeometry />
             <MeshDistortMaterial
@@ -143,7 +148,7 @@ export const Experience = (props) => {
           </mesh>
         </Float>
         <Float>
-          <mesh scale={[3, 3, 3]} position={[3, 1, -18]}>
+          <mesh scale={[5, 5, 5]} position={[3, 1, -18]}>
             <sphereGeometry />
             <MeshDistortMaterial
               opacity={0.8}
@@ -165,7 +170,7 @@ export const Experience = (props) => {
               color={"blue"}
             />
           </mesh>
-        </Float>
+        </Float> */}
       </motion.group>
       <Projects />
     </>

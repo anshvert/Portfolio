@@ -54,7 +54,7 @@ const Project = (props) => {
   });
 
   return (
-    <group {...props}>
+    <group {...props} scale={[1,1,1]} position={[0,-3,0]}>
       <mesh
         position-z={-0.001}
         onClick={() => window.open(project.url, "_blank")}
