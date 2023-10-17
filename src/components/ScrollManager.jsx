@@ -31,17 +31,14 @@ export const ScrollManager = (props) => {
       lastScroll.current = data.scroll.current;
       return;
     }
-
-    const curSection = Math.floor(data.scroll.current * data.pages);
-    if (data.scroll.current > lastScroll.current && curSection === 0) {
-      onSectionChange(1);
-    }
-    if (
-      data.scroll.current < lastScroll.current &&
-      data.scroll.current < 1 / (data.pages - 1)
-    ) {
-      onSectionChange(0);
-    }
+    const scrollData = data.scroll.current*data.pages
+    console.log(scrollData,section)
+    if (scrollData > 0 && section == 0 && data.scroll.current > lastScroll.current) onSectionChange(1)
+    else if (scrollData > 1.4 && section == 1 && data.scroll.current > lastScroll.current ) onSectionChange(2)
+    else if (scrollData > 2.7 && section == 2 && data.scroll.current > lastScroll.current) onSectionChange(3)
+    else if (scrollData  < 3.7 && section == 3 && data.scroll.current < lastScroll.current) onSectionChange(2)
+    else if (scrollData < 2.5 && section == 2 && data.scroll.current < lastScroll.current) onSectionChange(1)
+    else if (scrollData < 1.2 && section == 1 && data.scroll.current < lastScroll.current) onSectionChange(0)
     lastScroll.current = data.scroll.current;
   });
 
