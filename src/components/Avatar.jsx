@@ -42,9 +42,11 @@ export function Avatar(props) {
   // })
 
   useEffect(() => {
-    actions[animation].reset().fadeIn(0.5).play();
-    return () => {
+    if (actions[animation]) {
+      actions[animation].reset().fadeIn(0.5).play();
+      return () => {
       actions[animation].reset().fadeOut(0.5)
+    }
     }
   }, [animation]);
   return (

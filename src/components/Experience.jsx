@@ -25,10 +25,10 @@ export const Experience = (props) => {
   const cameraLookAtX = useMotionValue();
 
   useEffect(() => {
-    animate(cameraPositionX, menuOpened ? -5 : 0, {
+    animate(cameraPositionX, menuOpened ? -5 : 2, {
       ...framerMotionConfig,
     });
-    animate(cameraLookAtX, menuOpened ? 5 : 0, {
+    animate(cameraLookAtX, menuOpened ? 5 : 2.7, {
       ...framerMotionConfig,
     });
   }, [menuOpened]);
@@ -56,17 +56,7 @@ export const Experience = (props) => {
 
     state.camera.position.x = cameraPositionX.get();
     state.camera.lookAt(cameraLookAtX.get(), 0, 0);
-
-    // const position = new THREE.Vector3();
-    // characterContainerAboutRef.current.getWorldPosition(position);
-    // console.log([position.x, position.y, position.z]);
-
-    // const quaternion = new THREE.Quaternion();
-    // characterContainerAboutRef.current.getWorldQuaternion(quaternion);
-    // const euler = new THREE.Euler();
-    // euler.setFromQuaternion(quaternion, "XYZ");
-
-    // console.log([euler.x, euler.y, euler.z]);
+    
   });
 
   return (
