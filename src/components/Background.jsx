@@ -24,10 +24,10 @@ export const Background = () => {
       color: "#212121",
     });
     tl.current.to(color.current, {
-      color: "#7a7ca5",
+      color: "#F5EFE6",
     });
     tl.current.to(color.current, {
-      color: "#9b96dd",
+      color: "#252526",
     });
   }, []);
 

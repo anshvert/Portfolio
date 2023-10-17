@@ -8,34 +8,34 @@ import { useEffect, useRef } from "react";
 
 export const projects = [
   {
-    title: "Wawatmos",
-    url: "https://r3f-wawatmos-final.vercel.app/",
-    image: "projects/baked.jpg",
-    description: "Recreating the Atmos Awwwards website with React Three Fiber",
+    title: "My-Portfolio",
+    url: "my-portfolio-anshvert.vercel.app/",
+    image: "projects/portfolio3d.png",
+    description: "Personal Portfolio made using ThreeJS & ReactJS",
   },
   {
-    title: "Portfolio Baking",
-    url: "https://www.youtube.com/watch?v=YkHqpqJgLKw",
-    image: "projects/baked.jpg",
-    description: "Learn how to bake a 3D model with Blender and use it in r3f",
+    title: "PostHive",
+    url: "https://github.com/anshvert/PostHive",
+    image: "projects/posthive.png",
+    description: "Web application built for users to create & share content across various topics. Made using NextJS, PostGreSQL & GraphQL",
   },
   {
-    title: "3D Avatar",
-    url: "https://www.youtube.com/watch?v=pGMKIyALcK0",
-    image: "projects/baked.jpg",
-    description: "Learn how to use ReadyPlayerMe to create a 3D avatar",
+    title: "CodeNub",
+    url: "code-nub.vercel.app",
+    image: "projects/codenub.png",
+    description: "CodeNub is a platform that aims to help developers improve their coding skills.Made using NextJS & FireStore"
   },
   {
-    title: "Kanagame",
-    url: "https://www.youtube.com/watch?v=zwNF1-lsia8",
-    image: "projects/baked.jpg",
-    description: "Use React Three Fiber to create a 3D game",
+    title: "Discode",
+    url: "https://github.com/anshvert/Discode",
+    image: "projects/discode.png",
+    description: "Discode is an online educational platform to discuss and solve queries regarding any programming issues",
   },
   {
-    title: "Loader",
-    url: "https://www.youtube.com/watch?v=L12wIvuZTOY",
-    image: "projects/baked.jpg",
-    description: "Create a loading screen for your r3f projects",
+    title: "Mender",
+    url: "https://github.com/anshvert/Mender",
+    image: "projects/mender.png",
+    description: "Mender is a movie recommender system built on Python Streamlit Library",
   },
 ];
 
@@ -98,7 +98,7 @@ export const Projects = () => {
   const [currentProject] = useAtom(currentProjectAtom);
 
   return (
-    <group position-y={-viewport.height * 2 + 1.5 } scale={[0.5,0.5,0.5]} position-x={2}>
+    <group position-y={-viewport.height * 2 + 1.1 } scale={[0.5,0.5,0.5]} position-x={2.8}>
       {projects.map((project, index) => (
         <motion.group
           key={"project_" + index}
