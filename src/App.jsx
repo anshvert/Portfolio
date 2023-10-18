@@ -3,6 +3,7 @@ import { Experience } from "./components/Experience";
 import { ScrollManager } from "./components/ScrollManager";
 import { Menu } from "./components/Menu"
 import { Cursor } from "./components/Cursor"
+import { LoadingScreen } from "./components/LoadingScreen"
 import { OrbitControls, Scroll, ScrollControls } from "@react-three/drei";
 import { Interface } from "./components/Interface";
 import { useEffect, useState } from "react";
@@ -12,6 +13,7 @@ import { framerMotionConfig } from "./config";
 function App() {
   const [section, setSection] = useState(0)
   const [menuOpened, setMenuOpened] = useState(false)
+  const [started, setStarted] = useState(false)
 
   useEffect(() => {
       setMenuOpened(false)
@@ -19,6 +21,7 @@ function App() {
 
   return (
     <>
+      <LoadingScreen started={started} setStarted={setStarted}/>
       <MotionConfig transition={{
        ...framerMotionConfig
       }}>  

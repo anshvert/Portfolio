@@ -20,9 +20,7 @@ export const Experience = (props) => {
   const data = useScroll();
 
   const isMobile = window.innerWidth < 768
-  console.log(window.innerWidth)
   const responsiveRatio = viewport.width / 5
-  console.log(responsiveRatio)
 
   const [section, setSection] = useState(0);
 

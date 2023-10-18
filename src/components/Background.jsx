@@ -14,7 +14,7 @@ export const Background = () => {
   const tl = useRef();
 
   useFrame(() => {
-    tl.current.progress(data.scroll.current);
+    tl.current?.progress(data.scroll.current);
     material.current.color = new THREE.Color(color.current.color);
   });
 
