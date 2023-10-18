@@ -60,13 +60,13 @@ export const Menu = (props) => {
   const SocialIcons = () => {
     return (
       <div className="flex justify-evenly mb-10 opacity-50">
-        <a href="https://www.linkedin.com/in/ansh00000000/">
+        <a href="https://www.linkedin.com/in/ansh00000000/" target='_blank'>
           <LinkedInIcon sx={{ "&:hover": { color: "blue", opacity: 100 }}} fontSize='large'/>
         </a>
-        <a href="https://github.com/anshvert">
+        <a href="https://github.com/anshvert/Portfolio" target='_blank'>
           <GitHubIcon sx={{ "&:hover": { color: "black", opacity: 100 }}} fontSize='large' />
         </a>
-        <a href="https://twitter.com/an_shvert">
+        <a href="https://twitter.com/an_shvert" target='_blank'>
           <TwitterIcon sx={{ "&:hover": { color: "blue", opacity: 100 }}} fontSize='large' />
         </a>
         <a href="mailto:your-email@example.com">
