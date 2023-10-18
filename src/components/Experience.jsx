@@ -19,6 +19,11 @@ export const Experience = (props) => {
   const { viewport } = useThree();
   const data = useScroll();
 
+  const isMobile = window.innerWidth < 768
+  console.log(window.innerWidth)
+  const responsiveRatio = viewport.width / 5
+  console.log(responsiveRatio)
+
   const [section, setSection] = useState(0);
 
   const cameraPositionX = useMotionValue();
@@ -36,6 +41,7 @@ export const Experience = (props) => {
   }, [menuOpened]);
 
   const characterContainerAboutRef = useRef();
+  const characterGroup = useRef() 
 
   const [characterAnimation, setCharacterAnimation] = useState("Typing");
   useEffect(() => {
@@ -59,13 +65,16 @@ export const Experience = (props) => {
     state.camera.position.x = cameraPositionX.get();
     state.camera.lookAt(cameraLookAtX.get(), 0, 0);
     
+    if (section == 0){
+      characterContainerAboutRef.current.getWorldPosition(characterGroup.current.position)
+    }
   });
 
   return (
     <>
       <Background />
       <motion.group
-        position={[1.9072935059634513, 0.14400000000000002, 2.681801948466054]}
+        ref={characterGroup}
         rotation={[-3.141592653589793, 1.2053981633974482, 3.141592653589793]}
         animate={"" + section}
         transition={{
@@ -73,9 +82,9 @@ export const Experience = (props) => {
         }}
         variants={{
           0: {
-            scaleX: 0.9,
-            scaleY: 0.9,
-            scaleZ: 0.9,
+            scaleX: 0.9*responsiveRatio,
+            scaleY: 0.9*responsiveRatio,
+            scaleZ: 0.9*responsiveRatio,
           },
           1: {
             y: -viewport.height + 0.95,
@@ -89,12 +98,15 @@ export const Experience = (props) => {
             scaleZ: 0.7
           },
           2: {
-            x: 1,
+            x: isMobile ? 2.4: 1,
             y: -viewport.height * 2 - 1,
             z: 0,
             rotateX: 0,
             rotateY: Math.PI / 2,
             rotateZ: 0,
+            scaleX: isMobile ? 0.5 : 1,
+            scaleY: isMobile ? 0.5 : 1,
+            scaleZ: isMobile ? 0.5 : 1
           },
           3: {
             y: -viewport.height * 3 + 1,
@@ -103,21 +115,21 @@ export const Experience = (props) => {
             rotateX: 0,
             rotateY: -Math.PI / 4,
             rotateZ: 0,
-            scaleX: 0.7,
-            scaleY: 0.7,
-            scaleZ: 0.7
+            scaleX: isMobile ? 0.5 : 0.7,
+            scaleY: isMobile ? 0.5 : 0.7,
+            scaleZ: isMobile ? 0.5 : 0.7,
           },
         }}
       >
-        <Avatar animation={characterAnimation} />
+        <Avatar animation={characterAnimation} wireframe={section == 1}/>
       </motion.group>
       <ambientLight intensity={1} />
       <motion.group
-        position={[1.5, 2, 3]}
-        scale={[0.9, 0.9, 0.9]}
+        position={[isMobile ? 2.5: 1.5 , isMobile ? -viewport.height + 3 : 2, 3]}
+        scale={[0.9*responsiveRatio, 0.9*responsiveRatio, 0.9*responsiveRatio]}
         rotation-y={-Math.PI / 4}
         animate={{
-          y: section === 0 ? 0 : -1,
+          y: isMobile ? -viewport.height + 3: 0
         }}
       >
         <Office section={section} />

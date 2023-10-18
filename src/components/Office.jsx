@@ -35,8 +35,8 @@ export function Office(props) {
   const glassTextureOpacity = useMotionValue(0);
 
   useEffect(() => {
-    animate(textureOpacity, section === 0 ? 1 : 0);
-    animate(glassTextureOpacity, section === 0 ? 0.42 : 0);
+    animate(textureOpacity, section === 0 ? 1 : 0, {duration: 0.8});
+    animate(glassTextureOpacity, section === 0 ? 0.42 : 0, {duration: 0.8});
   }, [section]);
 
   useFrame(() => {

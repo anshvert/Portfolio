@@ -10,7 +10,7 @@ import { useControls } from 'leva';
 import * as THREE from "three"  
 
 export function Avatar(props) {
-  const { animation } = props
+  const { animation, wireframe } = props
   // const { headFollow, cursorFollow } = useControls({
   //   headFollow: false,
   //   cursorFollow: false
@@ -44,13 +44,20 @@ export function Avatar(props) {
   useEffect(() => {
     if (actions[animation]) {
       actions[animation].reset().fadeIn(0.5).play();
+      
       return () => {
-      actions[animation].reset().fadeOut(0.5)
-    }
+        actions[animation].reset().fadeOut(0.5)}
     }
   }, [animation]);
+
+  useEffect(() => {
+    Object.values(materials).forEach((material) => {
+      material.wireframe = wireframe;
+    });
+  }, [wireframe]);
+
   return (
-    <group {...props} ref={group} dispose={null}>
+    <group {...props} ref={group} dispose={null} >
       <group rotation-x={-Math.PI/2}>
         <primitive object={nodes.Hips} />
         <skinnedMesh

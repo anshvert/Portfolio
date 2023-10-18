@@ -3,10 +3,10 @@ import { useAtom } from "jotai";
 import { currentProjectAtom, projects } from "./Projects";
 
 const Section = (props) => {
-    const { children } = props
+    const { children, mobileTop } = props
     return ( 
         <motion.section
-            className={`h-screen w-screen p-8 max-w-screen-2xl mx-auto flex flex-col items-start justify-center`}
+            className={`h-screen w-screen p-8 max-w-screen-2xl mx-auto flex flex-col items-start ${mobileTop ? "justify-start md:justify-center": "justify-center"}`}
             initial={{ opacity: 0, y: 50,}}
             whileInView={{
                 opacity: 1,
@@ -45,8 +45,8 @@ export const Interface = (props) => {
 const About = (props) => {
   const { setSection } = props
     return (
-        <Section>
-            <h1 className="text-6xl font-extrabold leading-snug text-white">
+        <Section mobileTop>
+            <h1 className="text-4xl md:text-6xl font-extrabold leading-snug text-white">
                 Hi, I'm
                 <br />
                 <span className="px-1 italic">Ansh Tyagi</span>
@@ -128,13 +128,13 @@ const skills = [
   const Skills = () => {
     return (
       <Section>
-        <motion.div whileInView={"visible"}>
-          <h2 className="text-5xl font-bold text-white">Skills</h2>
+        <motion.div whileInView={"visible"} className="w-full">
+          <h2 className="text-3xl md:text-5xl font-bold text-white">Skills</h2>
           <div className=" mt-8 space-y-4">
             {skills.map((skill, index) => (
-              <div className="w-64" key={index}>
+              <div className="w-full md:w-64 mr-10 md:mr-0" key={index}>
                 <motion.h3
-                  className="text-xl font-bold text-white"
+                  className="text-lg md:text-xl font-bold text-white"
                   initial={{
                     opacity: 0,
                   }}
@@ -192,14 +192,14 @@ const Projects = () => {
     <Section>
       <div className="flex w-full h-full gap-8 items-center justify-center" style={{ marginTop: "700px" }}>
         <button
-          className="hover:text-orange-400 transition-colors text-orange-600 text-6xl"
+          className="hover:text-orange-400 transition-colors text-orange-600 text-3xl md:text-6xl"
           onClick={previousProject}
         >
           ← 
         </button>
-        <h2 className="text-5xl font-bold">Some things I've Worked On</h2>
+        <h2 className="text-2xl md:text-5xl font-bold">Some things I've Worked On</h2>
         <button
-          className="hover:text-orange-400 transition-colors text-orange-600 text-6xl"
+          className="hover:text-orange-400 transition-colors text-orange-600 text-3xl md:text-6xl"
           onClick={nextProject}
         >
            →
@@ -212,8 +212,8 @@ const Projects = () => {
 const Contact = () => {
     return (
         <Section>
-          <h2 className="text-5xl font-bold text-white">Contact me</h2>
-          <div className="mt-8 p-8 rounded-md bg-white w-96 max-w-full">
+          <h2 className="text-3xl md:text-5xl font-bold text-white">Contact me</h2>
+          <div className="mt-8 p-8 rounded-md bg-white w-96 max-w-full bg-opacity-50">
             <form>
               <label for="name" className="font-medium text-gray-900 block mb-1">
                 Name
